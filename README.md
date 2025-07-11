@@ -18,9 +18,11 @@ flowscollective.com/
 
 ### Design & User Experience
 - **Modern Gradient Design**: Eye-catching gradients and glassmorphism effects
+- **High-Quality Imagery**: Curated Unsplash photos showcasing art workshops and studios
 - **Responsive Layout**: Works perfectly on desktop, tablet, and mobile
 - **Smooth Animations**: Fade-in effects, parallax scrolling, and hover interactions
 - **Berlin Art Community Focus**: Tailored content for local art scene
+- **Interactive Gallery**: Hover effects and click interactions on workshop images
 
 ### Target Audiences
 - **Art Enthusiasts & Hobbyists**: Learning opportunities, workshops, community events
@@ -65,9 +67,16 @@ flowscollective.com/
 - Parallax scrolling effect
 
 ### Features Section
-- Three main value propositions
-- Icon-based cards with hover effects
+- Three main value propositions with high-quality images
+- Pottery workshops, professional studios, and partnership visuals
+- Icon-based cards with hover effects and image overlays
 - Grid layout that adapts to screen size
+
+### Gallery Showcase
+- Interactive grid of workshop and studio photography
+- Hover overlays with descriptive text
+- Images covering pottery, painting, community events, and studio spaces
+- Click interactions for future modal functionality
 
 ### Community Section
 - Detailed breakdown of user types

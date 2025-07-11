@@ -253,20 +253,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Lazy loading for images (when images are added)
     function initLazyLoading() {
-        const images = document.querySelectorAll('img[data-src]');
+        const images = document.querySelectorAll('img[loading="lazy"]');
         
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => {
+                img.classList.add('lazy');
+                imageObserver.observe(img);
+            });
+        }
+    }
+
+    // Gallery interaction enhancements
+    function initGalleryInteractions() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Add click effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Optional: Add modal functionality here in the future
+                const title = this.querySelector('.gallery-overlay h4').textContent;
+                console.log(`Clicked on: ${title}`);
             });
         });
-        
-        images.forEach(img => imageObserver.observe(img));
     }
 
     // Performance monitoring
@@ -283,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initFormHandling();
     initLazyLoading();
+    initGalleryInteractions();
     logPerformanceMetrics();
 
     // Add custom cursor effect for artistic feel (optional)
